@@ -1,0 +1,91 @@
+title: "Xcode Build Framework"
+summary: This step allows to build a framework using xcode
+description: ""
+website: https://github.com/FutureWorkshops/bitrise-step-s3-download
+source_code_url: https://github.com/FutureWorkshops/bitrise-step-s3-download
+host_os_tags:
+  - osx-10.10
+  - osx-10.9
+project_type_tags:
+  - ios
+type_tags:
+  - amazon
+  - s3
+is_requires_admin_user: false
+is_always_run: false
+is_skippable: false
+run_if: ""
+inputs:
+  - workspace: ''
+    opts:
+      title: "Workspace name"
+      summary: The name of the Xcode workspace to build.
+      description: 
+      is_expand: true
+      is_required: true
+      value_options: []
+  - scheme: ''
+    opts:
+      title: "Scheme name"
+      summary: The name of the Xcode project scheme to build.
+      description:
+      is_expand: true
+      is_required: true
+      value_options: []
+  - configuration: 'Release'
+    opts:
+      title: "Configuration name"
+      summary: 
+      description: 
+      is_expand: true
+      is_required: true
+      value_options: []
+  - clean: 'true'
+    opts:
+      title: "Clean project first"
+      summary: If set to true, xcode will perform a clean build.
+      description: 
+      is_expand: true
+      is_required: true
+      value_options: ["true", "false"]
+  - arch: 'iphoneos'
+    opts:
+      title: "Architecture"
+      summary: The type of architecture of the final product.
+      description: 
+      is_expand: true
+      is_required: true
+      value_options: ["iphoneos", "iphonesimulator", "universal"]
+  - codesign_identity: ''
+    opts:
+      title: "Codesign identity"
+      summary: The codesign identity for the framework binary.
+      description: 
+      is_expand: true
+      is_required: true
+      value_options: []
+  - xcodebuild_flags: ''
+    opts:
+      title: "Other flags"
+      summary: Additional flag to be passed to the xcodebuild command.
+      description: 
+      is_expand: true
+      is_required: true
+      value_options: []
+  - use_xcpretty: 'true'
+    opts:
+      title: "Use xcpretty"
+      summary: Beautify xcodebuild output by using xcpretty.
+      description: 
+      is_expand: true
+      is_required: true
+      value_options: ["true", "false"]
+  - output_dir: '$BITRISE_DEPLOY_DIR'
+    opts:
+      title: "Output directory"
+      summary: Output directory where to store the final product
+      description: 
+      is_expand: true
+      is_required: true
+      value_options: []
+
